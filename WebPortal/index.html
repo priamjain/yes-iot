@@ -7,6 +7,29 @@
   <br>
   <input type="submit"name="button1"value="login">
   </form>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCn9weOIUwmVrLnVVT7oxVLmzP7rb_hD04",
+    authDomain: "yes-iot.firebaseapp.com",
+    databaseURL: "https://yes-iot.firebaseio.com",
+    projectId: "yes-iot",
+    storageBucket: "yes-iot.appspot.com",
+    messagingSenderId: "365448020597",
+    appId: "1:365448020597:web:2e312ef1eb69326dd2ae3c",
+    measurementId: "G-D9CNGHGW4J"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
   </body>
 </html>
 
