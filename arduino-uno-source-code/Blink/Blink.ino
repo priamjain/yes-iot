@@ -6,7 +6,8 @@ void setup() {
 void loop() {
  if(Serial.available()){
   int x =Serial.read();
-  if(x==1)digitalWrite(13,HIGH);
+  Serial.println(x);
+  if(x==49)digitalWrite(13,HIGH);
   else digitalWrite(13,LOW); 
  }
  }
