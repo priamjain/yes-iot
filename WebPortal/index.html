@@ -1,9 +1,13 @@
 <html>
   <title>Login</title>
   <body>
+ <button onclick="ON()">ON</button>
+<button onclick="OFF()">OFF</button>
+
   <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
- <script>
+ <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-database.js"></script>
+  <script>
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyCn9weOIUwmVrLnVVT7oxVLmzP7rb_hD04",
@@ -15,10 +19,16 @@
     appId: "1:365448020597:web:2e312ef1eb69326dd2ae3c",
     measurementId: "G-D9CNGHGW4J"
   };
-  // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-/////////FORM AFTER THIS\\\\\\\\
+function ON() {
+firebase.database().ref('User1').child('D1').set("ON");
+}
+function OFF() {
+firebase.database().ref('User1').child('D1').set("OFF");
+}
+
+
 </script>
-  </body>
+ </body>
 </html>
 
