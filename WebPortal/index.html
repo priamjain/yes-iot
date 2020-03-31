@@ -21,10 +21,10 @@
   };
   firebase.initializeApp(firebaseConfig);
 function ON() {
-firebase.database().ref('User1').child('D1').set("ON");
+firebase.database().ref('User1').child('D1').set("1");
 }
 function OFF() {
-firebase.database().ref('User1').child('D1').set("OFF");
+firebase.database().ref('User1').child('D1').set("0");
 }
 
 
