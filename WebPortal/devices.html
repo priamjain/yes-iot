@@ -8,7 +8,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Play:700&display=swap" rel="stylesheet"> 
 
-  <title>YEs IOT</title>
+  <title>Yes IOT</title>
 </head>
 <body class="deep-purple lighten-5">
 
@@ -16,7 +16,7 @@
 <nav>
     <div class="nav-wrapper deep-purple darken-4">
       <a href="#" class="brand-logo deep-purple-text text-lighten-5" style="margin-left:20px; font-weight: bolder; font-family: Play;">
-        YEs IOT
+        Yes IOT
       </a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down deep-purple darken-4">
@@ -181,10 +181,6 @@
   </nav>
 
   
-  <script>
-function ON() {
-  console.log("on");
-}
   </script>
 <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
@@ -215,10 +211,8 @@ function ON() {
    firebase.initializeApp(firebaseConfig);
 function ON(){
   var lever1 = document.getElementById('lever1');
-var val = firebase.database().ref().child('User1').once('D1');
-firebase.database().ref('User1').child('D1').set((val+1)%2);
-  
-	alert(val);
+	firebase.database().ref('User1').child('D1').set("1");
+	alert("SUP");
 }
 
     // Initialize Firebase
