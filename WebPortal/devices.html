@@ -13,12 +13,13 @@
 <body class="deep-purple lighten-5">
 
   <!-- NAVBAR -->
-  <nav class="z-depth-0 deep-purple darken-4">
-    <div class="nav-wrapper container">
-      <a href="#" class="brand-logo deep-purple-text text-lighten-5 " style="font-weight: bolder; font-family: Play;">
+<nav>
+    <div class="nav-wrapper deep-purple darken-4">
+      <a href="#" class="brand-logo deep-purple-text text-lighten-5" style="margin-left:20px; font-weight: bolder; font-family: Play;">
         YEs IOT
       </a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down deep-purple darken-4">
           <li class="logged-in">
             <a href="#" class="deep-purple-text text-lighten-5 modal-trigger" data-target="modal-account">Account</a>
           </li>
@@ -39,6 +40,25 @@
     </div>
   </nav>
 
+<ul class="sidenav deep-purple darken-4" id="mobile-demo" style="padding-top: 20px;">
+          <li class="logged-in">
+            <a href="#" class="deep-purple-text text-lighten-5 modal-trigger" data-target="modal-account">Account</a>
+          </li>
+          <li class="logged-in">
+            <a href="#" class="deep-purple-text text-lighten-5 " id="logout">Logout</a>
+          </li>
+          <li class="logged-in">
+            <a href="#" class="deep-purple-text text-lighten-5  modal-trigger" data-target="modal-create">Add Device</a>
+          </li>
+          <li class="logged-out">
+            <a href="#" class="deep-purple-text text-lighten-5  modal-trigger" data-target="modal-login">Login</a>
+          </li>
+          <li class="logged-out">
+            <a href="#" class="deep-purple-text text-lighten-5  modal-trigger" data-target="modal-signup">Sign up</a>
+          </li>
+        </span>
+      </ul>          
+
   <!-- SIGN UP MODAL -->
   <div id="modal-signup" class="modal">
     <div class="modal-content">
@@ -52,7 +72,7 @@
           <input type="password" id="signup-password" required />
           <label for="signup-password">Choose password</label>
         </div>
-        <button class="btn  deep-purple darken-4 z-depth-0">Sign up</button>
+        <button class="btn deep-purple darken-4 z-depth-0">Sign up</button>
       </form>
     </div>
   </div>
@@ -110,7 +130,7 @@
         <div class="collapsible-body white switch">
           <label>
           Off
-          <input type="checkbox">
+          <input type="checkbox" onclick="ON()">
           <span class="lever"></span>
           On
           </label>
@@ -165,8 +185,31 @@
 <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
 
   <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script>
+
+   document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+
+</script>
 
   <script>
+function ON(){
+  var lever1 = document.getElementById('lever1'); 
+  alert("ON/OFF");
+}
+
     // Initialize Firebase
   var firebaseConfig = {
     apiKey: "AIzaSyC3ZvS3KHJ8blnbjSEyl1Pr_w9-Mccb6CY",
@@ -178,7 +221,8 @@
     appId: "1:493948508577:web:9a1a0bd91a6a67279a13e0",
     measurementId: "G-TGL3VS8VQ3"
   };
-  firebase.initializeApp(firebaseConfig);
+
+    firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 
     // make auth and firestore references
