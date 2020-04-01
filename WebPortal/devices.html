@@ -12,7 +12,8 @@
 </head>
 <body class="deep-purple lighten-5">
 
-  <!-- NAVBAR --><nav>
+  <!-- NAVBAR -->
+<nav>
     <div class="nav-wrapper deep-purple darken-4">
       <a href="#" class="brand-logo deep-purple-text text-lighten-5" style="margin-left:20px; font-weight: bolder; font-family: Play;">
         YEs IOT
@@ -56,7 +57,7 @@
             <a href="#" class="deep-purple-text text-lighten-5  modal-trigger" data-target="modal-signup">Sign up</a>
           </li>
         </span>
-      </ul>
+      </ul>          
 
   <!-- SIGN UP MODAL -->
   <div id="modal-signup" class="modal">
@@ -121,6 +122,7 @@
     </div>
   </div>
 
+
 <!-- ----------------
 
 Button / Slider Switch
@@ -154,16 +156,16 @@ Button / Slider Switch
       </a>
     </div>
   </nav>
-  
+
 <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
 
-<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-<!--sidebar code-->
 <script>
+
    document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
@@ -174,12 +176,11 @@ Button / Slider Switch
   $(document).ready(function(){
     $('.sidenav').sidenav();
   });
-</script>
-<!-- sidebar script ends -->
 
-  <script>
-    // Initialize Firebase
-   firebase.initializeApp(firebaseConfig);
+</script>
+
+<script>
+
 //==========================//
 //==========================//
 //
@@ -188,26 +189,16 @@ Button / Slider Switch
 //==========================//
 //==========================//
 
-function ON(){
-  var my_switch = document.getElementById('my-switch');
-  var val = firebase.database().ref().child('User1').once('D1');
-  firebase.database().ref('User1').child('D1').set((val+1)%2);
-  if(val == 1){
-    alert("now On",val);
-  } else {
-    alert("now Off",val);
-  }
-}
     // Initialize Firebase
   var firebaseConfig = {
-    apiKey: "AIzaSyCn9weOIUwmVrLnVVT7oxVLmzP7rb_hD04",
-    authDomain: "yes-iot.firebaseapp.com",
-    databaseURL: "https://yes-iot.firebaseio.com",
-    projectId: "yes-iot",
-    storageBucket: "yes-iot.appspot.com",
-    messagingSenderId: "365448020597",
-    appId: "1:365448020597:web:2e312ef1eb69326dd2ae3c",
-    measurementId: "G-D9CNGHGW4J"
+    apiKey: "AIzaSyC3ZvS3KHJ8blnbjSEyl1Pr_w9-Mccb6CY",
+    authDomain: "my-proj-ak.firebaseapp.com",
+    databaseURL: "https://my-proj-ak.firebaseio.com",
+    projectId: "my-proj-ak",
+    storageBucket: "my-proj-ak.appspot.com",
+    messagingSenderId: "493948508577",
+    appId: "1:493948508577:web:9a1a0bd91a6a67279a13e0",
+    measurementId: "G-TGL3VS8VQ3"
   };
 
     firebase.initializeApp(firebaseConfig);
@@ -216,11 +207,25 @@ function ON(){
     // make auth and firestore references
     const auth = firebase.auth();
     const db = firebase.firestore();
+  function ON(){
+  var my_switch = document.getElementById('my-switch');
+  if(my_switch.getAttribute('checked') == 'uncheck'){
+    my_switch.setAttribute('checked','check')
+    alert("now On");
+  } else {
+    my_switch.setAttribute('checked','uncheck')
+    alert("now Off");
+  }
+}
+
 
   </script>
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!--For Authentication -->
   <script src="./scripts/auth.js"></script>
   <script src="./scripts/index.js"></script>
+  <!-- -->
+
 </body>
 </html>
