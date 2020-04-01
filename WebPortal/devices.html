@@ -97,7 +97,7 @@
           <textarea id="content" class="materialize-textarea" required></textarea>
           <label for="content">Guide Content</label>
         </div>
-        <button class="btn  deep-purple darken-4 z-depth-0">Create</button>
+        <button class="btn deep-purple darken-4 z-depth-0">Create</button>
       </form>
     </div>
   </div>
@@ -133,7 +133,7 @@
           <label>
           Off
           <input type="checkbox">
-          <span class="lever"></span>
+          <span class="lever" onclick="ON()"></span>
           On
           </label>
         </div>
@@ -160,6 +160,12 @@
     </div>
   </nav>
 
+  
+  <script>
+function ON() {
+  console.log("on");
+}
+  </script>
 <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
