@@ -160,6 +160,8 @@ Button / Slider Switch
 <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
+</script>
+ <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-database.js"></script>
 
   <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -188,19 +190,28 @@ Button / Slider Switch
 //
 //==========================//
 //==========================//
-
-    // Initialize Firebase
+//  var firebaseConfig = {
+//    apiKey: "AIzaSyC3ZvS3KHJ8blnbjSEyl1Pr_w9-Mccb6CY",
+//    authDomain: "my-proj-ak.firebaseapp.com",
+//    databaseURL: "https://my-proj-ak.firebaseio.com",
+//    projectId: "my-proj-ak",
+//    storageBucket: "my-proj-ak.appspot.com",
+//    messagingSenderId: "493948508577",
+//    appId: "1:493948508577:web:9a1a0bd91a6a67279a13e0",
+//    measurementId: "G-TGL3VS8VQ3"
+//  };
   var firebaseConfig = {
-    apiKey: "AIzaSyC3ZvS3KHJ8blnbjSEyl1Pr_w9-Mccb6CY",
-    authDomain: "my-proj-ak.firebaseapp.com",
-    databaseURL: "https://my-proj-ak.firebaseio.com",
-    projectId: "my-proj-ak",
-    storageBucket: "my-proj-ak.appspot.com",
-    messagingSenderId: "493948508577",
-    appId: "1:493948508577:web:9a1a0bd91a6a67279a13e0",
-    measurementId: "G-TGL3VS8VQ3"
+    apiKey: "AIzaSyCn9weOIUwmVrLnVVT7oxVLmzP7rb_hD04",
+    authDomain: "yes-iot.firebaseapp.com",
+    databaseURL: "https://yes-iot.firebaseio.com",
+    projectId: "yes-iot",
+    storageBucket: "yes-iot.appspot.com",
+    messagingSenderId: "365448020597",
+    appId: "1:365448020597:web:2e312ef1eb69326dd2ae3c",
+    measurementId: "G-D9CNGHGW4J"
   };
 
+    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 
@@ -211,9 +222,11 @@ Button / Slider Switch
   var my_switch = document.getElementById('my-switch');
   if(my_switch.getAttribute('checked') == 'uncheck'){
     my_switch.setAttribute('checked','check')
+	  firebase.database().ref('User1').child('D1').set("1");
     alert("now On");
   } else {
     my_switch.setAttribute('checked','uncheck')
+	  firebase.database().ref('User1').child('D1').set("0");
     alert("now Off");
   }
 }
