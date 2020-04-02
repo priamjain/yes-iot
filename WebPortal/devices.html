@@ -90,7 +90,7 @@
           <input type="password" id="login-password" required />
           <label for="login-password">Your password</label>
         </div>
-        <button class="btn  deep-purple darken-4 z-depth-0">Login</button>
+        <button class="btn  deep-purple darken-4 z-depth-0" onclick="login()">Login</button>
       </form>
     </div>
   </div>
@@ -123,14 +123,10 @@
   </div>
 
 
-<!-- ----------------
-
-Button / Slider Switch
-
---------------------->
+<!------------------Button / Slider Switch--------------------->
 
 
-  <!-- Device LIST -->
+  <!- Device LIST -->
   <div class="container" style="margin-top: 40px;">
     <ul class="collapsible z-depth-0 guides" style="border: none;">
       <li>
@@ -218,13 +214,15 @@ Button / Slider Switch
     // make auth and firestore references
     const auth = firebase.auth();
     const db = firebase.firestore();
+    function login(){
+
+    }
   function ON(){
+	  var user = firebase.auth().currentUser;
   var my_switch = document.getElementById('my-switch');
   if(my_switch.getAttribute('checked') == 'uncheck'){
-    my_switch.setAttribute('checked','check')
-	  firebase.database().ref('User1').child('D1').set("1");
-    alert("now On");
-  } else {
+   	 my_switch.setAttribute('checked','check')
+	   } else {
     my_switch.setAttribute('checked','uncheck')
 	  firebase.database().ref('User1').child('D1').set("0");
     alert("now Off");
