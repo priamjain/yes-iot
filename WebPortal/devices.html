@@ -217,8 +217,9 @@
     function login(){
 	    firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-firebase.database().ref('/Users/' + user.uid).on('value',function(snapshot){ console.log(snapshot.val());});
+firebase.database().ref('/Users/' + user.uid).once('value',function(snapshot){ console.log(snapshot.val());});
     // User is signed in.
+	  
   } else {
     // No user is signed in.
   }
