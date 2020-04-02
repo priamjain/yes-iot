@@ -90,7 +90,7 @@
           <input type="password" id="login-password" required />
           <label for="login-password">Your password</label>
         </div>
-        <button class="btn  deep-purple darken-4 z-depth-0" onclick="login()">Login</button>
+        <button class="btn  deep-purple darken-4 z-depth-0" onclick="setTimeout(login, 4000)">Login</button>
       </form>
     </div>
   </div>
@@ -215,17 +215,27 @@
     const auth = firebase.auth();
     const db = firebase.firestore();
     function login(){
-
+	    firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+firebase.database().ref('/Users/' + user.uid).on('value',function(snapshot){ console.log(snapshot.val());});
+    // User is signed in.
+  } else {
+    // No user is signed in.
+  }
+});
     }
   function ON(){
 	  var user = firebase.auth().currentUser;
   var my_switch = document.getElementById('my-switch');
   if(my_switch.getAttribute('checked') == 'uncheck'){
    	 my_switch.setAttribute('checked','check')
+	  console.log("ON");
+firebase.database().ref('Users/'+user.uid).child('D1').set("1");
+
 	   } else {
     my_switch.setAttribute('checked','uncheck')
-	  firebase.database().ref('User1').child('D1').set("0");
-    alert("now Off");
+	  firebase.database().ref('Users/'+user.uid).child('D1').set("0");
+    console.log("Off");
   }
 }
 
